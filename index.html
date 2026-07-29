@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KytaProject | Partner Produktivitas Akademik & Digital Kamu!</title>
+<meta name="description" content="KytaProject: Partner produktivitas akademik. Jasa perapian format jurnal, sitasi Mendeley, desain presentasi, dan optimasi CV untuk mahasiswa dan akademisi.">
+<title>KytaProject | Partner Produktivitas Akademik & Digital Kamu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,8 +13,8 @@
     --bg:#F9F9F9;
     --card:#FFFFFF;
     --ink:#0B2545;
-    --ink-soft:#4B5C78;
-    --ink-faint:#8592A8;
+    --ink-soft:#344662;
+    --ink-faint:#566986;
     --gold:#D4AF37;
     --gold-deep:#B4901F;
     --highlight:#EBF2FA;
@@ -418,6 +419,34 @@
     .wa-float__label{display:none;}
     .wa-float{padding:14px;}
   }
+
+  /* ---------- Testimonial Carousel ---------- */
+  .testi-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 10px;
+  }
+  .testi-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .testi-card {
+    flex: 0 0 calc(33.333% - 16px);
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--bg);
+    box-shadow: var(--shadow-sm);
+  }
+  @media (max-width: 960px) {
+    .testi-card { flex: 0 0 calc(50% - 12px); }
+  }
+  @media (max-width: 600px) {
+    .testi-card { flex: 0 0 100%; }
+  }
+
 </style>
 </head>
 <body>
@@ -669,35 +698,67 @@
       </div>
     </section>
 
-   <!-- ================= TESTIMONIALS ================= -->
-<section class="section-pad" id="testimoni" style="background:var(--card); border-top:1px solid var(--line);">
+  <!-- ================= TESTIMONIALS (AUTO-SCROLL) ================= -->
+<section class="section-pad" id="testimoni" style="background:var(--card); border-top:1px solid var(--line); overflow:hidden;">
   <div class="wrap">
     <div class="section-heading reveal">
       <span class="eyebrow">Kata Mereka</span>
       <h2>Naskah lolos, pikiran tenang</h2>
     </div>
     
-    <div class="testi-grid reveal" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px;">
-      
-      <div class="testi-card" style="padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg);">
-        <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-        <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Margin skripsi aku berantakan 3 minggu, Kak Kyta beresin dalam semalam. Nggak nyangka ada yang mau bantu sedetail ini."</p>
-        <p style="font-weight:700; font-size:0.9rem;">Aulia R. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S1 Kesmas</span></p>
-      </div>
+    <div class="testi-carousel reveal">
+      <div class="testi-track" id="testi-track">
+        
+        <!-- Testi 1 -->
+        <div class="testi-card">
+          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
+          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Margin skripsi aku berantakan 3 minggu, Kak Kyta beresin dalam semalam. Nggak nyangka ada yang mau bantu sedetail ini."</p>
+          <p style="font-weight:700; font-size:0.9rem;">Aulia R. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S1 Kesmas</span></p>
+        </div>
 
-      <div class="testi-card" style="padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg);">
-        <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-        <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Penyelamat banget buat yang gaptek teknis OJS. Naskah jurnal saya dirapikan sesuai template dan sitasinya diperbaiki total."</p>
-        <p style="font-weight:700; font-size:0.9rem;">Fajar M. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S2 Ilmu Ekonomi</span></p>
-      </div>
+        <!-- Testi 2 -->
+        <div class="testi-card">
+          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
+          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Penyelamat banget buat yang gaptek teknis jurnal. Naskah saya dirapikan sesuai template IEEE dan sitasi Mendeley-nya disinkron total."</p>
+          <p style="font-weight:700; font-size:0.9rem;">Fajar M. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S2 Ilmu Ekonomi</span></p>
+        </div>
 
-      <div class="testi-card" style="padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg);">
-        <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-        <p style="font-weight:700; font-size:0.95rem; color:var(--ink); margin-bottom:8px;">[Slot ini bisa jadi milikmu]</p>
-        <p style="font-size:0.85rem; color:var(--ink-soft); margin-bottom:16px;">Jadilah akademisi berikutnya yang naskahnya lolos seleksi dengan pikiran tenang.</p>
-        <a href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20mau%20konsultasi%20dokumen%20dong." style="font-size:0.85rem; font-weight:700; color:var(--ink); text-decoration:underline;" target="_blank">Mulai ngobrol sekarang</a>
-      </div>
+        <!-- Testi 3 (Highlight: Konversi Jurnal) -->
+        <div class="testi-card">
+          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
+          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Bingung banget meringkas skripsi 120 halaman jadi paper jurnal 8 halaman. Dibantu ekstrak sama tim Kyta tanpa ngubah substansi risetku sama sekali."</p>
+          <p style="font-weight:700; font-size:0.9rem;">Bima S. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S1 Teknik Informatika</span></p>
+        </div>
 
+        <!-- Testi 4 -->
+        <div class="testi-card">
+          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
+          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"PPT sempro yang tadinya kaku dan penuh teks diubah jadi visual yang elegan banget. Dosen penguji sampai muji layout presentasinya."</p>
+          <p style="font-weight:700; font-size:0.9rem;">Kevin T. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S1 Manajemen</span></p>
+        </div>
+
+        <!-- Testi 5 -->
+        <div class="testi-card">
+          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
+          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Stres gara-gara harus ganti gaya sitasi manual dari Harvard ke APA 7th. Untung ada Kak Kyta yang bantu setup ulang database Mendeley-nya."</p>
+          <p style="font-weight:700; font-size:0.9rem;">Nisa A. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S3 Pendidikan</span></p>
+        </div>
+
+        <!-- Testi 6 -->
+        <div class="testi-card">
+          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
+          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Format CV-ku dibedah dan dirapikan biar tembus sistem ATS perusahaan. Nggak nyampai dua minggu langsung dapat panggilan interview."</p>
+          <p style="font-weight:700; font-size:0.9rem;">dr. Sarah <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Fresh Graduate (Kyta Career)</span></p>
+        </div>
+
+        <!-- Testi 7 -->
+        <div class="testi-card">
+          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
+          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Modul ajar yang tadinya cuma teks membosankan disulap jadi LKPD interaktif yang rapi. Membantu banget buat bahan mengajar di kelas."</p>
+          <p style="font-weight:700; font-size:0.9rem;">Bu Rina <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Guru SMP (Kyta Edu)</span></p>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -738,11 +799,14 @@
   </div>
 </footer>
 
-  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
-  <a class="wa-float" href="https://wa.me/6285800205251?text=Halo%20KytaProject,%20aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener" aria-label="Chat KytaProject di WhatsApp">
-    <svg viewBox="0 0 32 32" fill="none"><path d="M16 2C8.3 2 2 8.3 2 16c0 2.5.7 4.9 1.9 7L2 30l7.2-1.9c2 1.1 4.3 1.7 6.8 1.7 7.7 0 14-6.3 14-14S23.7 2 16 2z" fill="#FFFFFF"/><path d="M23.5 19.4c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.3s1.4 3.8 1.6 4.1c.2.3 2.8 4.2 6.7 5.9.9.4 1.7.6 2.3.8.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.4z" fill="#0B2545"/></svg>
-    <span class="wa-float__label">Chat Kami</span>
-  </a>
+ <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+<a class="wa-float" href="https://wa.me/6285800205251?text=Halo%20KytaProject,%20aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener" aria-label="Chat KytaProject di WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+    <path d="M16 2C8.3 2 2 8.3 2 16c0 2.5.7 4.9 1.9 7L2 30l7.2-1.9c2 1.1 4.3 1.7 6.8 1.7 7.7 0 14-6.3 14-14S23.7 2 16 2z" fill="#FFFFFF"/>
+    <path d="M23.5 19.4c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.3s1.4 3.8 1.6 4.1c.2.3 2.8 4.2 6.7 5.9.9.4 1.7.6 2.3.8.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.4z" fill="#0B2545"/>
+  </svg>
+  <span class="wa-float__label">Chat Kami</span>
+</a>
 
 <script>
   // Gentle scroll reveal, no dependencies, respects reduced motion.
@@ -762,6 +826,36 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     items.forEach(function(el){ io.observe(el); });
+  })();
+
+  // Testimonial Auto-Scroll Logic (5 seconds)
+  (function(){
+    const track = document.getElementById('testi-track');
+    if(!track) return;
+    const cards = track.children;
+    let index = 0;
+    
+    function getVisibleCards() {
+      if (window.innerWidth <= 600) return 1;
+      if (window.innerWidth <= 960) return 2;
+      return 3;
+    }
+
+    window.addEventListener('resize', () => {
+      index = 0;
+      track.style.transform = `translateX(0px)`;
+    });
+
+    setInterval(() => {
+      const visibleCards = getVisibleCards();
+      const maxIndex = cards.length - visibleCards;
+      
+      index = index >= maxIndex ? 0 : index + 1;
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      const gap = 24; 
+      
+      track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
+    }, 5000); // 5000ms = 5 detik
   })();
 </script>
 
