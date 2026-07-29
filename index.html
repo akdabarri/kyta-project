@@ -37,6 +37,7 @@
     font-family:'Plus Jakarta Sans', system-ui, sans-serif;
     -webkit-font-smoothing:antialiased;
     line-height:1.6;
+    overflow-x:hidden;
   }
   img,svg{display:block;max-width:100%;}
   a{color:inherit;text-decoration:none;}
@@ -64,7 +65,9 @@
     cursor:pointer;
     border:1.5px solid transparent;
     transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-    white-space:nowrap;
+    white-space:normal; /* Diubah agar teks tombol bisa turun ke bawah di HP */
+    text-align:center;
+    line-height:1.4;
   }
   .btn--primary{background:var(--ink);color:#FFFFFF;box-shadow:var(--shadow-sm);}
   .btn--primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);background:#0f3160;}
@@ -84,7 +87,7 @@
     margin-bottom:14px;
   }
 
-  /* ---------- Ruler divider (signature motif reused as section break) ---------- */
+  /* ---------- Ruler divider ---------- */
   .ruler-divider{
     width:100%;
     max-width:var(--wrap);
@@ -121,12 +124,48 @@
   .nav__links a{font-size:0.92rem;font-weight:600;color:var(--ink-soft);transition:color .15s ease;}
   .nav__links a:hover{color:var(--ink);}
   .nav__cta-wrap{display:flex;align-items:center;gap:22px;}
-  @media (max-width:760px){
-    .nav__links{display:none;}
+  
+  /* ---------- Pengaturan Tombol Mobile ---------- */
+  .nav-ham { display: none; background: transparent; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
+  .nav-ham svg { width: 28px; height: 28px; }
+  .mobile-only-btn { display: none; }
+  
+  /* ---------- Logika Layar Ponsel Lebih Kecil Dari 760px ---------- */
+  @media (max-width: 760px) {
+    .nav-ham { display: block; }
+    .desktop-only { display: none; }
+    
+    .nav__links {
+      display: flex; 
+      flex-direction: column;
+      position: absolute; 
+      top: 100%; 
+      left: 0; 
+      right: 0;
+      background: rgba(255,255,255,0.98); 
+      backdrop-filter: blur(10px);
+      padding: 24px; 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      border-bottom: 1px solid var(--line);
+      transform: translateY(-10px); 
+      opacity: 0; 
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav__links.is-open {
+      transform: translateY(0); 
+      opacity: 1; 
+      pointer-events: auto;
+    }
+    
+    .nav__links a { font-size: 1.05rem; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .nav__links a:last-child { border-bottom: none; }
+    .mobile-only-btn { display: inline-flex; margin-top: 16px; justify-content: center; }
   }
 
   /* ---------- Hero ---------- */
-  .hero{padding:64px 0 40px;}
+  .hero{padding:64px 0 40px; overflow:hidden;}
   .hero__grid{
     display:grid;
     grid-template-columns:1.05fr 0.95fr;
@@ -154,7 +193,13 @@
     .hero__subtitle{max-width:none;}
   }
 
-  /* ---------- Doc card (signature visual) ---------- */
+  /* Pengaturan Tombol di HP agar rapi */
+  @media (max-width:560px){
+    .hero__actions { flex-direction: column; width: 100%; }
+    .hero__actions .btn { width: 100%; padding: 14px 20px; }
+  }
+
+  /* ---------- Doc card ---------- */
   .hero__visual{display:flex;justify-content:center;}
   .doc-card-stage{
     position:relative;
@@ -263,7 +308,7 @@
     .integrity__inner{flex-direction:column;gap:16px;}
   }
 
-  /* ---------- Section heading (shared) ---------- */
+  /* ---------- Section heading ---------- */
   .section-heading{max-width:640px;margin:0 0 44px;}
   .section-heading h2{font-size:clamp(1.7rem, 3vw, 2.25rem);line-height:1.28;margin-bottom:14px;}
   .section-heading p{color:var(--ink-soft);font-size:1rem;}
@@ -363,63 +408,6 @@
     max-width:600px;
   }
 
-  /* ---------- Final CTA ---------- */
-  .final-cta{
-    background:var(--ink);
-    color:#FFFFFF;
-    padding:80px 0;
-    position:relative;
-    overflow:hidden;
-  }
-  .final-cta::before{
-    content:"";
-    position:absolute;inset:0;
-    background:repeating-linear-gradient(to right, rgba(212,175,55,0.12) 0 1.5px, transparent 1.5px 34px);
-    opacity:0.5;
-    pointer-events:none;
-  }
-  .final-cta__inner{position:relative;text-align:center;max-width:620px;margin:0 auto;}
-  .final-cta h2{color:#FFFFFF;font-size:clamp(1.7rem, 3.2vw, 2.3rem);margin-bottom:16px;line-height:1.3;}
-  .final-cta p{color:rgba(255,255,255,0.72);margin-bottom:32px;font-size:1.02rem;}
-
-  /* ---------- Footer ---------- */
-  .site-footer{padding:48px 0 100px;}
-  .footer__inner{
-    display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
-    flex-wrap:wrap;
-    padding-top:32px;
-    border-top:1px solid var(--line);
-  }
-  .footer__brand{font-family:'Playfair Display', serif;font-size:1.15rem;font-weight:700;margin-bottom:8px;}
-  .footer__tagline{color:var(--ink-faint);font-size:0.88rem;max-width:320px;}
-  .footer__contact{font-size:0.88rem;color:var(--ink-soft);}
-  .footer__contact a{font-weight:700;color:var(--ink);}
-  .footer__bottom{
-    margin-top:26px;font-size:0.78rem;color:var(--ink-faint);
-  }
-
-  /* ---------- Floating WhatsApp button ---------- */
-  .wa-float{
-    position:fixed;
-    right:22px;bottom:22px;
-    z-index:60;
-    display:flex;align-items:center;gap:10px;
-    background:var(--ink);
-    color:#FFFFFF;
-    padding:14px 18px;
-    border-radius:999px;
-    box-shadow:0 14px 30px rgba(11,37,69,0.3);
-    border:1.5px solid var(--gold);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .wa-float:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(11,37,69,0.38);}
-  .wa-float svg{width:22px;height:22px;flex:none;}
-  .wa-float__label{font-size:0.86rem;font-weight:700;}
-  @media (max-width:560px){
-    .wa-float__label{display:none;}
-    .wa-float{padding:14px;}
-  }
-
   /* ---------- Testimonial Carousel ---------- */
   .testi-carousel {
     position: relative;
@@ -447,6 +435,41 @@
     .testi-card { flex: 0 0 100%; }
   }
 
+  /* ---------- Footer ---------- */
+  .site-footer{padding:48px 0 100px;}
+  .footer__inner{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:32px; border-top:1px solid var(--line); padding-top:40px;
+  }
+  .footer__brand{font-family:'Playfair Display', serif;font-size:1.15rem;font-weight:700;margin-bottom:8px;}
+  .footer__tagline{color:var(--ink-faint);font-size:0.88rem;max-width:320px;}
+  .footer__contact{font-size:0.88rem;color:var(--ink-soft);}
+  .footer__contact a{font-weight:700;color:var(--ink);}
+  .footer__bottom{
+    margin-top:40px; border-top:1px solid var(--line); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    font-size:0.78rem;color:var(--ink-faint);
+  }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .wa-float{
+    position:fixed;
+    right:22px;bottom:22px;
+    z-index:60;
+    display:flex;align-items:center;gap:10px;
+    background:var(--ink);
+    color:#FFFFFF;
+    padding:14px 18px;
+    border-radius:999px;
+    box-shadow:0 14px 30px rgba(11,37,69,0.3);
+    border:1.5px solid var(--gold);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .wa-float:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(11,37,69,0.38);}
+  .wa-float svg{width:22px;height:22px;flex:none;}
+  .wa-float__label{font-size:0.86rem;font-weight:700;}
+  @media (max-width:560px){
+    .wa-float__label{display:none;}
+    .wa-float{padding:14px;}
+  }
 </style>
 </head>
 <body>
@@ -454,13 +477,23 @@
   <header class="site-header">
     <div class="wrap nav">
       <a href="#top" class="nav__logo">Kyta<span>Project</span></a>
-      <nav class="nav__links" aria-label="Navigasi utama">
+
+      <!-- Tombol Menu Khusus Mobile -->
+      <button class="nav-ham" id="mobile-menu-btn" aria-label="Buka Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <!-- ID nav-links ditambahkan di sini -->
+      <nav class="nav__links" id="nav-links" aria-label="Navigasi utama">
         <a href="#layanan">Layanan</a>
         <a href="#tenang-dulu">Sebelum Order</a>
+        <a href="#testimoni">Kata Mereka</a>
         <a href="#kontak">Kontak</a>
+        <a class="btn btn--gold btn--small mobile-only-btn" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener">Chat Kami</a>
       </nav>
-      <div class="nav__cta-wrap">
-        <a class="btn btn--gold btn--small" href="https://wa.me/6285800205251?text=Halo%20KytaProject,%20aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener">Chat Kami</a>
+      
+      <div class="nav__cta-wrap desktop-only">
+        <a class="btn btn--gold btn--small" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener">Chat Kami</a>
       </div>
     </div>
   </header>
@@ -471,11 +504,11 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__content reveal">
-  <span class="eyebrow">Partner Produktivitas Akademik & Digital</span>
-  <h1 class="hero__title">Fokus pada <strong>substansi risetmu</strong>. Biar kami yang bereskan <strong>format jurnal</strong> dan <strong>Mendeley</strong>-nya.</h1>
-  <p class="hero__subtitle">Kami bantu bagian teknis dokumenmu, mulai dari <b>konversi skripsi ke artikel jurnal</b>, perapian format, sampai ekstraksi data. Kamu yang berpikir, kami yang pastikan naskahmu siap submit tanpa drama penolakan editor.</p>
-  <div class="hero__actions">
-    <a class="btn btn--primary" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20lagi%20stuck%20sama%20format%20dokumen%20nih.%20Boleh%20minta%20tolong%20dicek%20nggak%3F" target="_blank" rel="noopener">Sini, Ceritain Dulu Masalah Dokumenmu (Gratis)</a>
+          <span class="eyebrow">Partner Produktivitas Akademik & Digital</span>
+          <h1 class="hero__title">Fokus pada <strong>substansi risetmu</strong>. Biar kami yang bereskan <strong>format jurnal</strong> dan <strong>Mendeley</strong>-nya.</h1>
+          <p class="hero__subtitle">Kami bantu bagian teknis dokumenmu, mulai dari <b>konversi skripsi ke artikel jurnal</b>, perapian format, sampai ekstraksi data. Kamu yang berpikir, kami yang pastikan naskahmu siap submit tanpa drama penolakan editor.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20lagi%20stuck%20sama%20format%20dokumen%20nih.%20Boleh%20minta%20tolong%20dicek%20nggak%3F" target="_blank" rel="noopener">Sini, Ceritain Dulu Masalah Dokumenmu (Gratis)</a>
             <a class="btn btn--ghost" href="#layanan">Lihat Layanan & Harga</a>
           </div>
           <p class="hero__note">Nggak usah bingung, <b>sini cerita dulu aja</b> masalah dokumenmu. Kami dengarkan dulu sebelum kasih saran.</p>
@@ -723,7 +756,7 @@
           <p style="font-weight:700; font-size:0.9rem;">Fajar M. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S2 Ilmu Ekonomi</span></p>
         </div>
 
-        <!-- Testi 3 (Highlight: Konversi Jurnal) -->
+        <!-- Testi 3 -->
         <div class="testi-card">
           <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
           <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Bingung banget meringkas skripsi 120 halaman jadi paper jurnal 8 halaman. Dibantu ekstrak sama tim Kyta tanpa ngubah substansi risetku sama sekali."</p>
@@ -768,7 +801,7 @@
  <!-- ================= FOOTER ================= -->
 <footer class="site-footer" id="kontak">
   <div class="wrap">
-    <div class="footer__inner" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:32px; border-top:1px solid var(--line); padding-top:40px;">
+    <div class="footer__inner">
       
       <div>
         <p class="footer__brand">KytaProject</p>
@@ -793,7 +826,7 @@
       </div>
 
     </div>
-    <div class="footer__bottom" style="margin-top:40px; border-top:1px solid var(--line); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+    <div class="footer__bottom">
       <p>© 2026 KytaProject.</p>
     </div>
   </div>
@@ -809,7 +842,7 @@
 </a>
 
 <script>
-  // Gentle scroll reveal, no dependencies, respects reduced motion.
+  // Gentle scroll reveal
   (function(){
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var items = document.querySelectorAll('.reveal');
@@ -828,7 +861,7 @@
     items.forEach(function(el){ io.observe(el); });
   })();
 
-  // Testimonial Auto-Scroll Logic (5 seconds)
+  // Testimonial Auto-Scroll Logic
   (function(){
     const track = document.getElementById('testi-track');
     if(!track) return;
@@ -855,7 +888,24 @@
       const gap = 24; 
       
       track.style.transform = `translateX(-${index * (cardWidth + gap)}px)`;
-    }, 5000); // 5000ms = 5 detik
+    }, 5000); 
+  })();
+
+  // Mobile Menu Logic
+  (function(){
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    if(menuBtn && navLinks) {
+      menuBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('is-open');
+      });
+      const links = navLinks.querySelectorAll('a');
+      links.forEach(function(link) {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('is-open');
+        });
+      });
+    }
   })();
 </script>
 
