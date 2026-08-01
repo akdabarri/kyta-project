@@ -7,7 +7,7 @@
 <title>KytaProject | Partner Produktivitas Akademik & Digital Kamu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#F9F9F9;
@@ -34,15 +34,16 @@
     margin:0;
     background:var(--bg);
     color:var(--ink);
-    font-family:'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family:'Baloo 2', cursive, system-ui, sans-serif;
     -webkit-font-smoothing:antialiased;
     line-height:1.6;
     overflow-x:hidden;
+    width: 100vw;
   }
   img,svg{display:block;max-width:100%;}
   a{color:inherit;text-decoration:none;}
   ul{margin:0;padding:0;list-style:none;}
-  h1,h2,h3{font-family:'Playfair Display', serif;font-weight:600;margin:0;color:var(--ink);}
+  h1,h2,h3{font-family:'Baloo 2', cursive;font-weight:700;margin:0;color:var(--ink);}
   p{margin:0;}
   .wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 24px;}
 
@@ -61,13 +62,13 @@
     padding:15px 26px;
     border-radius:999px;
     font-weight:700;
-    font-size:0.98rem;
+    font-size:1.05rem;
     cursor:pointer;
     border:1.5px solid transparent;
     transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-    white-space:normal; /* Diubah agar teks tombol bisa turun ke bawah di HP */
+    white-space:normal;
     text-align:center;
-    line-height:1.4;
+    line-height:1.3;
   }
   .btn--primary{background:var(--ink);color:#FFFFFF;box-shadow:var(--shadow-sm);}
   .btn--primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);background:#0f3160;}
@@ -75,11 +76,11 @@
   .btn--ghost:hover{border-color:var(--ink);}
   .btn--gold{background:var(--gold);color:var(--ink);}
   .btn--gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(212,175,55,0.35);background:#e0bd4c;}
-  .btn--small{padding:10px 18px;font-size:0.85rem;}
+  .btn--small{padding:10px 18px;font-size:0.95rem;}
 
   .eyebrow{
     display:inline-block;
-    font-size:0.78rem;
+    font-size:0.85rem;
     font-weight:700;
     letter-spacing:0.11em;
     text-transform:uppercase;
@@ -87,125 +88,102 @@
     margin-bottom:14px;
   }
 
-  /* ---------- Ruler divider ---------- */
-  .ruler-divider{
-    width:100%;
-    max-width:var(--wrap);
-    margin:0 auto;
-    height:14px;
-    position:relative;
-    background:
-      repeating-linear-gradient(to right, var(--gold) 0 1.5px, transparent 1.5px 28px) top / 100% 7px no-repeat,
-      linear-gradient(var(--line), var(--line)) bottom / 100% 1px no-repeat;
-    opacity:0.9;
-  }
-  .ruler-divider.tight{max-width:100%;}
-
   /* ---------- Header ---------- */
   .site-header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(249,249,249,0.86);
+    position:sticky;top:0;z-index:900;
+    background:rgba(249,249,249,0.95);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
+    width: 100%;
   }
   .nav{
     display:flex;align-items:center;justify-content:space-between;
-    padding:16px 0;
+    padding:14px 24px;
+    position: relative;
   }
   .nav__logo{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:1.28rem;
+    font-weight:800;
+    font-size:1.4rem;
     letter-spacing:0.01em;
     color:var(--ink);
   }
   .nav__logo span{color:var(--gold-deep);}
+  
   .nav__links{display:flex;align-items:center;gap:28px;}
-  .nav__links a{font-size:0.92rem;font-weight:600;color:var(--ink-soft);transition:color .15s ease;}
+  .nav__links a{font-size:1.05rem;font-weight:600;color:var(--ink-soft);transition:color .15s ease;}
   .nav__links a:hover{color:var(--ink);}
   .nav__cta-wrap{display:flex;align-items:center;gap:22px;}
   
   /* ---------- Pengaturan Tombol Mobile ---------- */
   .nav-ham { display: none; background: transparent; border: none; cursor: pointer; color: var(--ink); padding: 4px; }
-  .nav-ham svg { width: 28px; height: 28px; }
+  .nav-ham svg { width: 30px; height: 30px; }
   .mobile-only-btn { display: none; }
   
-  /* ---------- Logika Layar Ponsel Lebih Kecil Dari 760px ---------- */
   @media (max-width: 760px) {
     .nav-ham { display: block; }
     .desktop-only { display: none; }
     
     .nav__links {
-      display: flex; 
+      display: none; 
       flex-direction: column;
       position: absolute; 
       top: 100%; 
       left: 0; 
-      right: 0;
-      background: rgba(255,255,255,0.98); 
-      backdrop-filter: blur(10px);
+      width: 100%;
+      background: #FFFFFF; 
       padding: 24px; 
       box-shadow: 0 10px 20px rgba(0,0,0,0.08);
       border-bottom: 1px solid var(--line);
-      transform: translateY(-10px); 
-      opacity: 0; 
-      pointer-events: none;
-      transition: all 0.3s ease;
     }
     
     .nav__links.is-open {
-      transform: translateY(0); 
-      opacity: 1; 
-      pointer-events: auto;
+      display: flex;
     }
     
-    .nav__links a { font-size: 1.05rem; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .nav__links a { font-size: 1.15rem; padding: 12px 0; border-bottom: 1px solid var(--line); }
     .nav__links a:last-child { border-bottom: none; }
-    .mobile-only-btn { display: inline-flex; margin-top: 16px; justify-content: center; }
+    .mobile-only-btn { display: inline-flex !important; margin-top: 20px; justify-content: center; }
   }
 
   /* ---------- Hero ---------- */
-  .hero{padding:64px 0 40px; overflow:hidden;}
+  .hero{padding:64px 0 40px; overflow:hidden; width:100%;}
   .hero__grid{
     display:grid;
     grid-template-columns:1.05fr 0.95fr;
-    gap:56px;
+    gap:40px;
     align-items:center;
   }
   .hero__title{
-    font-size:clamp(2rem, 4vw, 2.9rem);
-    line-height:1.22;
+    font-size:clamp(2.2rem, 4vw, 3.2rem);
+    line-height:1.15;
     letter-spacing:-0.01em;
-    margin-bottom:22px;
+    margin-bottom:18px;
   }
   .hero__subtitle{
-    font-size:1.05rem;
+    font-size:1.15rem;
     color:var(--ink-soft);
     max-width:520px;
     margin-bottom:32px;
   }
-  .hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:18px;}
-  .hero__note{font-size:0.86rem;color:var(--ink-faint);}
-  .hero__note b{color:var(--ink-soft);}
+  .hero__actions{display:flex;flex-wrap:wrap;gap:14px;}
 
   @media (max-width:960px){
     .hero__grid{grid-template-columns:1fr;gap:44px;}
     .hero__subtitle{max-width:none;}
   }
 
-  /* Pengaturan Tombol di HP agar rapi */
   @media (max-width:560px){
     .hero__actions { flex-direction: column; width: 100%; }
     .hero__actions .btn { width: 100%; padding: 14px 20px; }
   }
 
   /* ---------- Doc card ---------- */
-  .hero__visual{display:flex;justify-content:center;}
+  .hero__visual{display:flex;justify-content:center; width:100%;}
   .doc-card-stage{
     position:relative;
     width:100%;
-    max-width:360px;
-    padding:30px 10px 30px;
+    max-width:340px;
+    padding:20px;
   }
   .doc-card{
     position:relative;
@@ -213,8 +191,9 @@
     border-radius:18px;
     box-shadow:var(--shadow-lg);
     padding:26px 24px 26px 46px;
-    transform:rotate(-3deg);
+    transform:rotate(-2deg);
     border:1px solid rgba(11,37,69,0.05);
+    width: 100%;
   }
   .doc-card__ruler{
     position:absolute;
@@ -233,7 +212,7 @@
     gap:10px;
   }
   .doc-card__filename{
-    font-size:0.72rem;color:var(--ink-faint);font-weight:600;
+    font-size:0.85rem;color:var(--ink-faint);font-weight:600;
     letter-spacing:0.02em;
   }
   .doc-card__badge{
@@ -241,13 +220,13 @@
     background:var(--highlight);
     border-radius:999px;
     padding:5px 11px;
-    font-size:0.72rem;font-weight:700;color:var(--ink);
+    font-size:0.85rem;font-weight:700;color:var(--ink);
     white-space:nowrap;
   }
   .doc-card__badge b{color:var(--gold-deep);}
 
   .doc-card__tag{
-    font-size:0.68rem;font-weight:800;letter-spacing:0.12em;
+    font-size:0.75rem;font-weight:800;letter-spacing:0.12em;
     color:var(--ink-faint);text-transform:uppercase;
     margin-bottom:8px;display:block;
   }
@@ -256,7 +235,7 @@
 
   .flow-arrow{
     display:flex;align-items:center;gap:8px;
-    color:var(--gold-deep);font-size:0.72rem;font-weight:700;
+    color:var(--gold-deep);font-size:0.85rem;font-weight:700;
     margin:4px 0 14px;
   }
   .flow-arrow::before, .flow-arrow::after{content:"";flex:1;height:1px;background:var(--line);}
@@ -276,11 +255,6 @@
   }
   .doc-card__seal svg{width:26px;height:26px;}
 
-  @media (max-width:520px){
-    .doc-card{transform:rotate(-1.5deg);padding:22px 18px 22px 40px;}
-    .doc-card-stage{max-width:320px;}
-  }
-
   /* ---------- Integrity banner ---------- */
   .integrity{
     background:var(--highlight);
@@ -299,19 +273,19 @@
   }
   .integrity__icon svg{width:22px;height:22px;}
   .integrity__heading{
-    font-size:1.28rem;
+    font-size:1.4rem;
     margin-bottom:10px;
     line-height:1.35;
   }
-  .integrity__text{color:var(--ink-soft);font-size:0.98rem;max-width:640px;}
+  .integrity__text{color:var(--ink-soft);font-size:1.05rem;max-width:640px;}
   @media (max-width:640px){
     .integrity__inner{flex-direction:column;gap:16px;}
   }
 
   /* ---------- Section heading ---------- */
   .section-heading{max-width:640px;margin:0 0 44px;}
-  .section-heading h2{font-size:clamp(1.7rem, 3vw, 2.25rem);line-height:1.28;margin-bottom:14px;}
-  .section-heading p{color:var(--ink-soft);font-size:1rem;}
+  .section-heading h2{font-size:clamp(1.9rem, 3vw, 2.5rem);line-height:1.28;margin-bottom:14px;}
+  .section-heading p{color:var(--ink-soft);font-size:1.1rem;}
   .section-pad{padding:88px 0;}
 
   /* ---------- Pillars ---------- */
@@ -334,11 +308,11 @@
   }
   .pillar-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
   .pillar-card__tag{
-    font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
+    font-size:0.8rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;
     color:var(--gold-deep);margin-bottom:10px;
   }
-  .pillar-card__name{font-size:1.5rem;margin-bottom:10px;}
-  .pillar-card__desc{color:var(--ink-soft);font-size:0.94rem;margin-bottom:22px;}
+  .pillar-card__name{font-size:1.7rem;margin-bottom:10px;}
+  .pillar-card__desc{color:var(--ink-soft);font-size:1.05rem;margin-bottom:22px;}
 
   .pillar-card__list{display:flex;flex-direction:column;gap:16px;margin-bottom:24px;}
   .service-item{
@@ -348,28 +322,28 @@
   }
   .service-item:last-child{border-bottom:none;padding-bottom:0;}
   .service-item__main{flex:1;min-width:0;}
-  .service-item__name{font-weight:700;font-size:0.95rem;margin-bottom:3px;}
-  .service-item__note{font-size:0.82rem;color:var(--ink-faint);line-height:1.45;}
+  .service-item__name{font-weight:700;font-size:1.05rem;margin-bottom:3px;}
+  .service-item__note{font-size:0.9rem;color:var(--ink-faint);line-height:1.45;}
   .service-item__price{
     flex:none;text-align:right;
   }
   .service-item__price b{
-    display:block;color:var(--gold-deep);font-size:0.96rem;font-weight:800;white-space:nowrap;
+    display:block;color:var(--gold-deep);font-size:1.05rem;font-weight:800;white-space:nowrap;
   }
-  .service-item__price span{font-size:0.72rem;color:var(--ink-faint);}
+  .service-item__price span{font-size:0.8rem;color:var(--ink-faint);}
 
   .pillar-card__cta{
     margin-top:auto;
-    font-size:0.86rem;font-weight:700;
+    font-size:0.95rem;font-weight:700;
     color:var(--ink);
     display:inline-flex;align-items:center;gap:6px;
     padding-top:8px;
   }
-  .pillar-card__cta svg{width:15px;height:15px;transition:transform .15s ease;}
+  .pillar-card__cta svg{width:16px;height:16px;transition:transform .15s ease;}
   .pillar-card__cta:hover svg{transform:translate(3px,-2px);}
 
   /* ---------- Reassurance / FAQ ---------- */
-  .reassurance__intro{color:var(--ink-soft);font-size:1rem;max-width:640px;margin-bottom:36px;}
+  .reassurance__intro{color:var(--ink-soft);font-size:1.1rem;max-width:640px;margin-bottom:36px;}
   .faq-list{display:flex;flex-direction:column;gap:14px;max-width:760px;}
   .faq-item{
     background:var(--card);
@@ -382,9 +356,8 @@
     list-style:none;
     padding:18px 0;
     display:flex;align-items:center;justify-content:space-between;gap:16px;
-    font-family:'Playfair Display', serif;
-    font-weight:600;
-    font-size:1.08rem;
+    font-weight:700;
+    font-size:1.15rem;
     color:var(--ink);
   }
   .faq-item summary::-webkit-details-marker{display:none;}
@@ -403,7 +376,7 @@
   .faq-item[open] summary .plus{transform:rotate(45deg);}
   .faq-item__a{
     color:var(--ink-soft);
-    font-size:0.96rem;
+    font-size:1.05rem;
     padding-bottom:20px;
     max-width:600px;
   }
@@ -435,18 +408,73 @@
     .testi-card { flex: 0 0 100%; }
   }
 
-  /* ---------- Footer ---------- */
-  .site-footer{padding:48px 0 100px;}
-  .footer__inner{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:32px; border-top:1px solid var(--line); padding-top:40px;
+/* ---------- Footer Minimalis ---------- */
+  .site-footer {
+    padding: 32px 0 24px; /* Ruang atas bawah dipangkas drastis */
+    background: var(--bg);
   }
-  .footer__brand{font-family:'Playfair Display', serif;font-size:1.15rem;font-weight:700;margin-bottom:8px;}
-  .footer__tagline{color:var(--ink-faint);font-size:0.88rem;max-width:320px;}
-  .footer__contact{font-size:0.88rem;color:var(--ink-soft);}
-  .footer__contact a{font-weight:700;color:var(--ink);}
-  .footer__bottom{
-    margin-top:40px; border-top:1px solid var(--line); padding-top:20px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
-    font-size:0.78rem;color:var(--ink-faint);
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  .footer__col-main {
+    flex: 1 1 300px;
+    max-width: 380px;
+  }
+  .footer__col-links {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .footer__brand {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .footer__brand span { color: var(--gold-deep); }
+  .footer__tagline {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .footer__title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Jarak antar tautan dirapatkan */
+  }
+  .footer__contact a {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .footer__contact a:hover { color: var(--gold-deep); }
+  .footer__bottom {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
+  @media (max-width: 600px) {
+    .footer__inner { flex-direction: column; }
+    .footer__col-links { gap: 24px; flex-direction: column; }
   }
 
   /* ---------- Floating WhatsApp button ---------- */
@@ -464,8 +492,8 @@
     transition:transform .2s ease, box-shadow .2s ease;
   }
   .wa-float:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(11,37,69,0.38);}
-  .wa-float svg{width:22px;height:22px;flex:none;}
-  .wa-float__label{font-size:0.86rem;font-weight:700;}
+  .wa-float svg{width:24px;height:24px;flex:none;}
+  .wa-float__label{font-size:0.95rem;font-weight:700;}
   @media (max-width:560px){
     .wa-float__label{display:none;}
     .wa-float{padding:14px;}
@@ -478,15 +506,13 @@
     <div class="wrap nav">
       <a href="#top" class="nav__logo">Kyta<span>Project</span></a>
 
-      <!-- Tombol Menu Khusus Mobile -->
       <button class="nav-ham" id="mobile-menu-btn" aria-label="Buka Menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
 
-      <!-- ID nav-links ditambahkan di sini -->
       <nav class="nav__links" id="nav-links" aria-label="Navigasi utama">
         <a href="#layanan">Layanan</a>
-        <a href="#tenang-dulu">Sebelum Order</a>
+        <a href="#pertanyaan">Sebelum Order</a>
         <a href="#testimoni">Kata Mereka</a>
         <a href="#kontak">Kontak</a>
         <a class="btn btn--gold btn--small mobile-only-btn" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener">Chat Kami</a>
@@ -504,14 +530,13 @@
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__content reveal">
-          <span class="eyebrow">Partner Produktivitas Akademik & Digital</span>
-          <h1 class="hero__title">Fokus pada <strong>substansi risetmu</strong>. Biar kami yang bereskan <strong>format jurnal</strong> dan <strong>Mendeley</strong>-nya.</h1>
-          <p class="hero__subtitle">Kami bantu bagian teknis dokumenmu, mulai dari <b>konversi skripsi ke artikel jurnal</b>, perapian format, sampai ekstraksi data. Kamu yang berpikir, kami yang pastikan naskahmu siap submit tanpa drama penolakan editor.</p>
+          <span class="eyebrow">Partner Produktivitas Akademik</span>
+          <h1 class="hero__title">Isi jurnal murni dari <strong>kepala</strong>. Urusan format dan Mendeley, biar Kak Kyta yang <strong>kelola</strong>.</h1>
+          <p class="hero__subtitle">Bantu konversi skripsi ke jurnal, perapian format, hingga ekstraksi data. Naskah siap submit tanpa pusing urusan teknis.</p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20lagi%20stuck%20sama%20format%20dokumen%20nih.%20Boleh%20minta%20tolong%20dicek%20nggak%3F" target="_blank" rel="noopener">Sini, Ceritain Dulu Masalah Dokumenmu (Gratis)</a>
-            <a class="btn btn--ghost" href="#layanan">Lihat Layanan & Harga</a>
+            <a class="btn btn--primary" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20lagi%20stuck%20sama%20format%20dokumen%20nih.%20Boleh%20minta%20tolong%20dicek%20nggak%3F" target="_blank" rel="noopener">Ceritakan Masalah Dokumenmu (Gratis)</a>
+            <a class="btn btn--ghost" href="#layanan">Lihat Katalog Harga</a>
           </div>
-          <p class="hero__note">Nggak usah bingung, <b>sini cerita dulu aja</b> masalah dokumenmu. Kami dengarkan dulu sebelum kasih saran.</p>
         </div>
 
         <div class="hero__visual reveal">
@@ -556,8 +581,6 @@
       </div>
     </section>
 
-    <div class="ruler-divider" role="presentation"></div>
-
     <!-- ================= INTEGRITY BANNER ================= -->
     <section class="integrity">
       <div class="wrap">
@@ -566,8 +589,8 @@
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <div>
-            <p class="integrity__heading">Satu hal yang perlu kamu tahu dari awal. Kami bukan jasa joki.</p>
-            <p class="integrity__text">KytaProject tidak menulis skripsi, tidak mengerjakan tugas, dan tidak pernah mengubah data penelitianmu. Kami hanya membantu bagian format, sitasi, dan tampilan, supaya kamu bisa fokus penuh pada isi dan analisis yang memang hasil pemikiranmu sendiri. Jadi kalau dosen penguji bertanya soal isi skripsimu, kamu tetap bisa jawab dengan tenang, karena semuanya murni dari kamu.</p>
+            <p class="integrity__heading">Satu hal penting: Kami bukan jasa joki.</p>
+            <p class="integrity__text">Kami tidak menulis naskah atau memanipulasi data dari nol. Kami hanya merapikan format, tata letak, dan sitasi. Karya dan pemikiran murni tetap 100% milikmu.</p>
           </div>
         </div>
       </div>
@@ -578,7 +601,7 @@
       <div class="wrap">
         <div class="section-heading reveal">
           <span class="eyebrow">Layanan Kami</span>
-          <h2>Tiga hal yang biasanya bikin kepala penuh, biar kami yang pegang</h2>
+          <h2>Mana bagian yang paling bikin kamu lelah? Pilih saja, nanti kita bereskan~~</h2>
           <p>Pilih sesuai kebutuhanmu saja. Bisa satu bagian dulu, bisa juga semuanya sekaligus.</p>
         </div>
 
@@ -610,19 +633,19 @@
                   <p class="service-item__name">Parafrase Kalimat Akademik</p>
                   <p class="service-item__note">Bantuan teknologi dengan peninjauan manual untuk menurunkan plagiasi.</p>
                 </div>
-                <div class="service-item__price"><b>Rp 15.000</b><span>/ halaman</span></div>
+                <div class="service-item__price"><b>Rp 7.500</b><span>/ halaman</span></div>
               </li>
               <li class="service-item">
                 <div class="service-item__main">
                   <p class="service-item__name">Pengecekan Plagiasi Turnitin</p>
                   <p class="service-item__note">Jaminan aman tanpa masuk repositori.</p>
                 </div>
-                <div class="service-item__price"><b>Rp 10.000</b><span>/ dokumen</span></div>
+                <div class="service-item__price"><b>Rp 7.500</b><span>/ dokumen</span></div>
               </li>
             </ul>
 
-            <a class="pillar-card__cta" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20ada%20kebutuhan%20custom%20nih%20buat%20dokumenku.%20Bisa%20bantu%20nggak%3F" target="_blank" rel="noopener">
-                Belum nemu yang pas? Klik untuk tanya Kak Kyta
+            <a class="pillar-card__cta" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Ada%20kebutuhan%20spesifik%20buat%20dokumenku.%20Bisa%20bantu%20nggak%3F" target="_blank" rel="noopener">
+                Ada kebutuhan spesifik lain? Yuk, diskusikan
                 <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
@@ -646,19 +669,19 @@
                   <p class="service-item__name">Pembuatan Visualisasi Data</p>
                   <p class="service-item__note">Grafik, diagram alir, fishbone matrix.</p>
                 </div>
-                <div class="service-item__price"><b>Rp 25.000</b><span>/ gambar</span></div>
+                <div class="service-item__price"><b>Rp 20.000</b><span>/ gambar</span></div>
               </li>
               <li class="service-item">
                 <div class="service-item__main">
                   <p class="service-item__name">Desain Modul Ajar atau LKPD</p>
                   <p class="service-item__note">Tata letak visual untuk media pendidikan.</p>
                 </div>
-                <div class="service-item__price"><b>Rp 15.000</b><span>/ halaman</span></div>
+                <div class="service-item__price"><b>Rp 12.500</b><span>/ halaman</span></div>
               </li>
             </ul>
 
-            <a class="pillar-card__cta" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20ada%20kebutuhan%20custom%20nih%20buat%20dokumenku.%20Bisa%20bantu%20nggak%3F" target="_blank" rel="noopener">
-                Belum nemu yang pas? Klik untuk tanya Kak Kyta
+            <a class="pillar-card__cta" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Ada%20kebutuhan%20spesifik%20buat%20dokumenku.%20Bisa%20bantu%20nggak%3F" target="_blank" rel="noopener">
+                Ada kebutuhan spesifik lain? Yuk, diskusikan
                 <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
@@ -675,26 +698,26 @@
                   <p class="service-item__name">Pembuatan CV Ramah ATS</p>
                   <p class="service-item__note">Desain bersih sesuai standar rekrutmen.</p>
                 </div>
-                <div class="service-item__price"><b>Rp 35.000</b><span>/ dokumen</span></div>
+                <div class="service-item__price"><b>Rp 45.000</b><span>/ dokumen</span></div>
               </li>
               <li class="service-item">
                 <div class="service-item__main">
                   <p class="service-item__name">Peninjauan Profil LinkedIn</p>
                   <p class="service-item__note">Optimalisasi kata kunci dan narasi profil.</p>
                 </div>
-                <div class="service-item__price"><b>Rp 50.000</b><span>/ akun</span></div>
+                <div class="service-item__price"><b>Rp 30.000</b><span>/ akun</span></div>
               </li>
               <li class="service-item">
                 <div class="service-item__main">
                   <p class="service-item__name">Konsultasi Dokumen Karier</p>
                   <p class="service-item__note">Bedah format surat lamaran.</p>
                 </div>
-                <div class="service-item__price"><b>Rp 20.000</b><span>/ dokumen</span></div>
+                <div class="service-item__price"><b>Rp 65.000</b><span>/ Jam</span></div>
               </li>
             </ul>
 
-            <a class="pillar-card__cta" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20ada%20kebutuhan%20custom%20nih%20buat%20dokumenku.%20Bisa%20bantu%20nggak%3F" target="_blank" rel="noopener">
-              Belum nemu yang pas? Klik untuk tanya Kak Kyta
+            <a class="pillar-card__cta" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Ada%20kebutuhan%20spesifik%20buat%20dokumenku.%20Bisa%20bantu%20nggak%3F" target="_blank" rel="noopener">
+              Ada kebutuhan spesifik lain? Yuk, diskusikan
               <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
@@ -703,29 +726,27 @@
       </div>
     </section>
 
-    <div class="ruler-divider" role="presentation"></div>
-
     <!-- ================= REASSURANCE ================= -->
-    <section class="section-pad" id="tenang-dulu">
+    <section class="section-pad" id="pertanyaan">
       <div class="wrap">
         <div class="section-heading reveal">
-          <span class="eyebrow">Sebelum Kamu Mutusin</span>
-          <h2>Wajar kok kalau kamu masih ragu</h2>
+          <span class="eyebrow">Pertanyaan yang Sering Muncul</span>
+          <h2>Masih ragu pakai jasa perapian jurnal? Baca ini dulu biar tenang..</h2>
         </div>
-        <p class="reassurance__intro reveal">Nggak usah bingung, sini cerita dulu aja masalah dokumenmu. Sebelum itu, mungkin beberapa hal ini juga sempat kepikiran.</p>
+        <p class="reassurance__intro reveal">Berikut beberapa hal yang sering ditanyakan teman-teman sebelum mulai.</p>
 
         <div class="faq-list reveal">
           <details class="faq-item">
-            <summary>Ini termasuk curang, nggak, sih?<span class="plus" aria-hidden="true"></span></summary>
-            <p class="faq-item__a">Nggak. Kami cuma bantu rapikan format dan tata letak, persis seperti kerja proofreader profesional. Isi tulisan, analisis, dan datanya tetap murni dari kamu.</p>
+            <summary>Ini curang nggak sih?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Nggak sama sekali. Kami bekerja persis seperti editor profesional yang cuma merapikan tata letak. Isi riset tetap murni buatanmu.</p>
           </details>
           <details class="faq-item">
-            <summary>Kalau ternyata masih ada revisi dari dosen, gimana?<span class="plus" aria-hidden="true"></span></summary>
-            <p class="faq-item__a">Tenang. Selama revisinya soal format (bukan isi tulisan), kami bantu perbaiki lagi sampai dokumenmu benar-benar diterima.</p>
+            <summary>Kalau dosen minta revisi gimana?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Aman. Selama revisinya terkait format dan layout yang kami kerjakan, kami bantu perbaiki sampai tuntas.</p>
           </details>
           <details class="faq-item">
-            <summary>Cara pesannya gimana?<span class="plus" aria-hidden="true"></span></summary>
-            <p class="faq-item__a">Gampang. Klik tombol WhatsApp, kirim file yang masih berantakan, lalu kasih tahu kami kapan deadline-nya. Sisanya biar kami yang urus dari sana.</p>
+            <summary>Cara ordernya ribet nggak?<span class="plus" aria-hidden="true"></span></summary>
+            <p class="faq-item__a">Sangat praktis. Klik tombol WhatsApp, kirim file mentahmu, lalu sebutkan deadlinenya. Sisanya kami yang kerjakan.</p>
           </details>
         </div>
       </div>
@@ -744,51 +765,93 @@
         
         <!-- Testi 1 -->
         <div class="testi-card">
-          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Margin skripsi aku berantakan 3 minggu, Kak Kyta beresin dalam semalam. Nggak nyangka ada yang mau bantu sedetail ini."</p>
-          <p style="font-weight:700; font-size:0.9rem;">Aulia R. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S1 Kesmas</span></p>
+          <div style="margin-bottom:12px; display:flex; gap:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Margin skripsi aku berantakan 3 minggu, Kak Kyta beresin dalam semalam. Nggak nyangka ada yang mau bantu sedetail ini."</p>
+          <p style="font-weight:700; font-size:1.05rem;">Aulia R. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.9rem;">Mahasiswa S1 Kesmas</span></p>
         </div>
 
         <!-- Testi 2 -->
         <div class="testi-card">
-          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Penyelamat banget buat yang gaptek teknis jurnal. Naskah saya dirapikan sesuai template IEEE dan sitasi Mendeley-nya disinkron total."</p>
-          <p style="font-weight:700; font-size:0.9rem;">Fajar M. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S2 Ilmu Ekonomi</span></p>
+          <div style="margin-bottom:12px; display:flex; gap:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Penyelamat banget buat yang belum paham teknis jurnal. Naskah saya dirapikan sesuai template IEEE dan sitasi Mendeley disinkron total."</p>
+          <p style="font-weight:700; font-size:1.05rem;">Fajar M. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.9rem;">Mahasiswa S2 Ilmu Ekonomi</span></p>
         </div>
 
         <!-- Testi 3 -->
         <div class="testi-card">
-          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Bingung banget meringkas skripsi 120 halaman jadi paper jurnal 8 halaman. Dibantu ekstrak sama tim Kyta tanpa ngubah substansi risetku sama sekali."</p>
-          <p style="font-weight:700; font-size:0.9rem;">Bima S. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S1 Teknik Informatika</span></p>
+          <div style="margin-bottom:12px; display:flex; gap:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Bingung banget meringkas skripsi 120 halaman jadi paper jurnal 8 halaman. Dibantu ekstrak sama tim Kyta tanpa ngubah substansi risetku sama sekali."</p>
+          <p style="font-weight:700; font-size:1.05rem;">Bima S. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.9rem;">Mahasiswa S1 Teknik Informatika</span></p>
         </div>
 
         <!-- Testi 4 -->
         <div class="testi-card">
-          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"PPT sempro yang tadinya kaku dan penuh teks diubah jadi visual yang elegan banget. Dosen penguji sampai muji layout presentasinya."</p>
-          <p style="font-weight:700; font-size:0.9rem;">Kevin T. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S1 Manajemen</span></p>
+          <div style="margin-bottom:12px; display:flex; gap:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"PPT sempro yang tadinya kaku dan penuh teks diubah jadi visual yang elegan banget. Dosen penguji sampai muji layout presentasinya."</p>
+          <p style="font-weight:700; font-size:1.05rem;">Kevin T. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.9rem;">Mahasiswa S1 Manajemen</span></p>
         </div>
 
         <!-- Testi 5 -->
         <div class="testi-card">
-          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Stres gara-gara harus ganti gaya sitasi manual dari Harvard ke APA 7th. Untung ada Kak Kyta yang bantu setup ulang database Mendeley-nya."</p>
-          <p style="font-weight:700; font-size:0.9rem;">Nisa A. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Mahasiswa S3 Pendidikan</span></p>
+          <div style="margin-bottom:12px; display:flex; gap:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Stres gara-gara harus ganti gaya sitasi manual dari Harvard ke APA 7th. Untung ada Kak Kyta yang bantu setup ulang database Mendeley-nya."</p>
+          <p style="font-weight:700; font-size:1.05rem;">Nisa A. <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.9rem;">Mahasiswa S3 Pendidikan</span></p>
         </div>
 
         <!-- Testi 6 -->
         <div class="testi-card">
-          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Format CV-ku dibedah dan dirapikan biar tembus sistem ATS perusahaan. Nggak nyampai dua minggu langsung dapat panggilan interview."</p>
-          <p style="font-weight:700; font-size:0.9rem;">dr. Sarah <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Fresh Graduate (Kyta Career)</span></p>
+          <div style="margin-bottom:12px; display:flex; gap:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Format CV-ku dibedah dan dirapikan biar tembus sistem ATS perusahaan. Nggak nyampai dua minggu langsung dapat panggilan interview."</p>
+          <p style="font-weight:700; font-size:1.05rem;">dr. Sarah <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.9rem;">Fresh Graduate</span></p>
         </div>
 
         <!-- Testi 7 -->
         <div class="testi-card">
-          <div style="color:var(--gold-deep); margin-bottom:12px; font-size:1.1rem;">★★★★★</div>
-          <p style="font-size:0.95rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Modul ajar yang tadinya cuma teks membosankan disulap jadi LKPD interaktif yang rapi. Membantu banget buat bahan mengajar di kelas."</p>
-          <p style="font-weight:700; font-size:0.9rem;">Bu Rina <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.8rem;">Guru SMP (Kyta Edu)</span></p>
+          <div style="margin-bottom:12px; display:flex; gap:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold-deep)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p style="font-size:1.05rem; color:var(--ink-soft); margin-bottom:16px; font-style:italic;">"Modul ajar yang tadinya cuma teks membosankan disulap jadi LKPD interaktif yang rapi. Membantu banget buat bahan mengajar di kelas."</p>
+          <p style="font-weight:700; font-size:1.05rem;">Bu Rina <span style="font-weight:400; color:var(--ink-faint); display:block; font-size:0.9rem;">Tenaga Pendidik</span></p>
         </div>
 
       </div>
@@ -798,30 +861,32 @@
 
   </main>
 
- <!-- ================= FOOTER ================= -->
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer" id="kontak">
   <div class="wrap">
     <div class="footer__inner">
       
-      <div>
-        <p class="footer__brand">KytaProject</p>
-        <p class="footer__tagline">Partner produktivitas akademik. Kami tidak memalsukan data, kami memastikan naskahmu tampil sempurna di mata editor.</p>
+      <div class="footer__col-main">
+        <p class="footer__brand">Kyta<span>Project</span></p>
+        <p class="footer__tagline">Partner produktivitas akademik. Naskah rapi, siap submit, dan pikiran tenang.</p>
       </div>
       
-      <div>
-        <p style="font-weight:700; margin-bottom:12px; font-size:0.9rem;">Hubungi Kak Kyta</p>
-        <div class="footer__contact" style="display:flex; flex-direction:column; gap:8px;">
-          <a href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener">WhatsApp: 0858-0020-5251</a>
-          <a href="mailto:emailanda@gmail.com">Email: kontak@kytaproject.com</a>
+      <div class="footer__col-links">
+        <div>
+          <p class="footer__title">Hubungi Kak Kyta</p>
+          <div class="footer__contact">
+            <a href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener">WhatsApp: 0858-0020-5251</a>
+            <a href="mailto:kontak@kytaproject.com">Email: kontak@kytaproject.com</a>
+          </div>
         </div>
-      </div>
 
-      <div>
-        <p style="font-weight:700; margin-bottom:12px; font-size:0.9rem;">Media Sosial</p>
-        <div class="footer__contact" style="display:flex; flex-direction:column; gap:8px;">
-          <a href="https://instagram.com/kytaproject" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://threads.net/@kytaproject" target="_blank" rel="noopener">Threads</a>
-          <a href="https://twitter.com/kytaproject" target="_blank" rel="noopener">X (Twitter)</a>
+        <div>
+          <p class="footer__title">Media Sosial</p>
+          <div class="footer__contact">
+            <a href="https://instagram.com/kytaproject" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://threads.net/@kytaproject" target="_blank" rel="noopener">Threads</a>
+            <a href="https://twitter.com/kytaproject" target="_blank" rel="noopener">X (Twitter)</a>
+          </div>
         </div>
       </div>
 
@@ -833,7 +898,7 @@
 </footer>
 
  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
-<a class="wa-float" href="https://wa.me/6285800205251?text=Halo%20KytaProject,%20aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener" aria-label="Chat KytaProject di WhatsApp">
+<a class="wa-float" href="https://wa.me/6285800205251?text=Halo%20Kak%20Kyta!%20Aku%20mau%20tanya%20soal%20perbaikan%20dokumen%20nih" target="_blank" rel="noopener" aria-label="Chat KytaProject di WhatsApp">
   <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
     <path d="M16 2C8.3 2 2 8.3 2 16c0 2.5.7 4.9 1.9 7L2 30l7.2-1.9c2 1.1 4.3 1.7 6.8 1.7 7.7 0 14-6.3 14-14S23.7 2 16 2z" fill="#FFFFFF"/>
     <path d="M23.5 19.4c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.8-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.3-1.4 3.3s1.4 3.8 1.6 4.1c.2.3 2.8 4.2 6.7 5.9.9.4 1.7.6 2.3.8.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.4z" fill="#0B2545"/>
@@ -897,12 +962,19 @@
     const navLinks = document.getElementById('nav-links');
     if(menuBtn && navLinks) {
       menuBtn.addEventListener('click', function() {
-        navLinks.classList.toggle('is-open');
+        if(navLinks.classList.contains('is-open')){
+           navLinks.classList.remove('is-open');
+           navLinks.style.display = 'none';
+        } else {
+           navLinks.classList.add('is-open');
+           navLinks.style.display = 'flex';
+        }
       });
       const links = navLinks.querySelectorAll('a');
       links.forEach(function(link) {
         link.addEventListener('click', function() {
           navLinks.classList.remove('is-open');
+          navLinks.style.display = 'none';
         });
       });
     }
